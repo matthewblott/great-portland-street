@@ -56,7 +56,8 @@ $: fieldName = 'lineName'
 
   const getData = async () => {
 
-    let response = await fetch(`https://api.tfl.gov.uk/Stoppoint/940GZZLUGPS/Arrivals?mode=tube`)
+    let url = `TravelStop`
+    let response = await fetch(url)
     let values = await response.json()
     let filtered = values.filter((val) => val.destinationName !== undefined)
 
@@ -70,6 +71,12 @@ $: fieldName = 'lineName'
 </script>
 
 <div>
+  <h4>Click column header to sort</h4>
+</div>
+
+<div>
+
+
 
   <table>
     <thead>

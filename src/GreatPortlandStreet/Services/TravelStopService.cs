@@ -26,9 +26,10 @@ public class TravelStopService : ITravelStopService
       return null;
     }
     
-    var stops = JsonConvert.DeserializeObject<IEnumerable<TravelStop>>(content);
-
-    return stops;
+    var allStops = JsonConvert.DeserializeObject<IEnumerable<TravelStop>>(content);
+    var validStops = allStops.Where(x => !string.IsNullOrEmpty(x.DestinationName));
+    
+    return validStops;
 
   }
   

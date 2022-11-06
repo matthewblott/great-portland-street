@@ -2,7 +2,7 @@
   "profiles": {
     "WebApplication1": {
       "commandName": "Project",
-      "applicationUrl": "http://localhost:5045"
+      "applicationUrl": "http://localhost:5000"
     }
   }
 }

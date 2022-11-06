@@ -10,5 +10,5 @@ builder.Services.AddScoped<ITravelStopService, TravelStopService>();
 var app = builder.Build();
 
 app.MapControllers();
-
+app.UseFileServer();
 app.Run();

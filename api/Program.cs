@@ -1,14 +1,24 @@
-using GreatPortlandStreet.Services;
+namespace api;
 
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore;
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddHttpClient();
-builder.Services.AddScoped<ITravelStopService, TravelStopService>();
-
-var app = builder.Build();
-
-app.MapControllers();
-app.UseFileServer();
-app.Run();
+internal class Program
+{
+  // private static void Main(string[] args)
+  // {
+  //   var builder = WebApplication.CreateBuilder(args);
+  //   var startup = new Startup(builder.Configuration);
+  //
+  //   startup.ConfigureServices(builder.Services);
+  //
+  //   var app = builder;
+  //
+  //   startup.Configure(app, builder.Environment);
+  //   
+  // }
+  //
+  
+  public static void Main(string[] args) =>
+    WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().Build().Run();
+  
+}

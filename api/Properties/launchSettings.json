@@ -1,9 +1,9 @@
 ﻿{
   "profiles": {
     "WebApplication1": {
-      "launchBrowser": true,
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "http://localhost:5000",
       "applicationUrl": "http://localhost:5000"
     }
   }

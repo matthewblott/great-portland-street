@@ -1,0 +1,8 @@
+﻿{
+  "profiles": {
+    "WebApplication1": {
+      "commandName": "Project",
+      "applicationUrl": "http://localhost:5045"
+    }
+  }
+}

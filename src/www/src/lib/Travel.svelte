@@ -4,12 +4,49 @@
   import {data, timeout} from './stores'
   import {writable} from 'svelte/store'
 
+$: fieldName = 'lineName'
+
+  const getFieldName = (col) => {
+
+    switch(col) {
+      case 'Line':
+        return 'lineName'
+      case 'Destination':
+        return 'destinationName'
+      case 'Platform':
+        return 'platformName'
+      case 'Direction':
+        return 'direction'
+      case 'Expected':
+        return 'expectedArrival'
+      default:
+        return 'lineName'
+        
+    }
+  }
+
+  const sort = () => {
+
+    $data.sort((a, b) => {
+      let aVal = Object.entries(a).find(x => x[0] === fieldName)[1]
+      let bVal = Object.entries(b).find(x => x[0] === fieldName)[1]
+      let retVal = aVal > bVal ? 1 : (bVal > aVal) ? -1 : 0
+
+      return retVal
+
+    })
+
+    $data = $data
+
+  }
+
   const toDateString = (date) => (new Date(date)).toISOString().substring(0, 10)
   const toTimeString = (date) => (new Date(date)).toISOString().substring(11, 16)
 
   const clickHandler = (s) => {
     let col = s.path[0].innerText
-    alert(col)
+    fieldName = getFieldName(col)
+    sort()
   }
 
   const getData = async () => {

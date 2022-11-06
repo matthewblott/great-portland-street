@@ -4,6 +4,11 @@
   import {data, timeout} from './stores'
   import {writable} from 'svelte/store'
 
+  setInterval(async () => {
+    $data = await getData()
+    await sort()
+  }, 5000)
+
 $: fieldName = 'lineName'
 
   const getFieldName = (col) => {

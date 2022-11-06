@@ -7,6 +7,11 @@
   const toDateString = (date) => (new Date(date)).toISOString().substring(0, 10)
   const toTimeString = (date) => (new Date(date)).toISOString().substring(11, 16)
 
+  const clickHandler = (s) => {
+    let col = s.path[0].innerText
+    alert(col)
+  }
+
   const getData = async () => {
 
     let response = await fetch(`https://api.tfl.gov.uk/Stoppoint/940GZZLUGPS/Arrivals?mode=tube`)
@@ -26,11 +31,11 @@
 
   <table>
     <thead>
-      <th>Line</th>
-      <th>Destination</th>
-      <th>Platform</th>
-      <th>Direction</th>
-      <th>Expected</th>
+      <th on:click={clickHandler}>Line</th>
+      <th on:click={clickHandler}>Destination</th>
+      <th on:click={clickHandler}>Platform</th>
+      <th on:click={clickHandler}>Direction</th>
+      <th on:click={clickHandler}>Expected</th>
     </thead>
     <tbody>
 

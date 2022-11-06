@@ -22,3 +22,11 @@ npm install
 npm run build
 
 ```
+
+Integration testing is included. The test spins up a server and checks valid records are returned from the Api. To run:
+
+```
+cd tests
+dotnet test
+```
+

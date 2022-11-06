@@ -11,8 +11,9 @@
 
     let response = await fetch(`https://api.tfl.gov.uk/Stoppoint/940GZZLUGPS/Arrivals?mode=tube`)
     let values = await response.json()
+    let filtered = values.filter((val) => val.destinationName !== undefined)
 
-    return values
+    return filtered
   }
 
   onMount(async() => {

@@ -4,6 +4,9 @@
   import {data, timeout} from './stores'
   import {writable} from 'svelte/store'
 
+  const toDateString = (date) => (new Date(date)).toISOString().substring(0, 10)
+  const toTimeString = (date) => (new Date(date)).toISOString().substring(11, 16)
+
   const getData = async () => {
 
     let response = await fetch(`https://api.tfl.gov.uk/Stoppoint/940GZZLUGPS/Arrivals?mode=tube`)
@@ -34,10 +37,10 @@
 
         <tr>
           <td>{lineName}</td>
-          <td>{destinationName}</td>
+          <td>{destinationName === undefined ? '' : destinationName }</td>
           <td>{platformName}</td>
-          <td>{direction}</td>
-          <td>{expectedArrival}</td>
+          <td>{direction === undefined ? '' : direction }</td>
+          <td>{toDateString(expectedArrival)} {toTimeString(expectedArrival)}</td>
         </tr>
 
       {/each}
